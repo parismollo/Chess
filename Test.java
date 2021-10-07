@@ -21,6 +21,9 @@ public class Test{
 		System.out.println(cs.estVide());
 		System.out.println("-----------------------");
 		System.out.println(cs);
+		System.out.println("-----------------------");
+		Plateau pla = new Plateau(8, 8);
+		pla.afficher();
 
 	}
 }
