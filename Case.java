@@ -1,6 +1,7 @@
 public class Case{
-	boolean blanc; // true si blanc, false si noir.
+	private boolean blanc; // true si blanc, false si noir.
 	private Piece piece; // si null la case est vide
+	
 	public Case(boolean b, Piece p){
 		this.blanc = b;
 		this.piece = p;
@@ -16,6 +17,15 @@ public class Case{
 	}
 	public void enleverPiece(){
 		this.piece = null;
+	}
+	public String toString(){
+		String s = "";
+		if (!estVide()) {
+			s = String.valueOf(this.piece.toString().charAt(0));
+		}else{
+			s = (blanc) ? "-" : "*";
+		}
+		return s;
 	}
 
 }

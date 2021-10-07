@@ -13,13 +13,14 @@ public class Test{
 		System.out.println(c);
 		System.out.println("-----------------------");
 		// Ex 3
-		Case cs= new Case(true, null);
+		Case cs= new Case(false, null);
 		System.out.println(cs.estVide());
 		cs.remplirPiece(r);
 		System.out.println(cs.estVide());
-		cs.enleverPiece();
+		// cs.enleverPiece();
 		System.out.println(cs.estVide());
 		System.out.println("-----------------------");
+		System.out.println(cs);
 
 	}
 }

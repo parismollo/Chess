@@ -1,6 +1,6 @@
 public class Piece{
-	boolean blanc; // true pour blanc, false pour noir.
-	String nom; // nom de la piece.
+	private boolean blanc; // true pour blanc, false pour noir.
+	private String nom; // nom de la piece.
 
 	public Piece(boolean b, String n){
 		this.blanc = b;
