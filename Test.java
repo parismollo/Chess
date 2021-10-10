@@ -22,7 +22,20 @@ public class Test{
 		System.out.println("-----------------------");
 		System.out.println(cs);
 		System.out.println("-----------------------");
-		Plateau pla = new Plateau(8, 8);
+		Plateau pla = new Plateau(8, 8); // 0 - 7; 0 - 7
+		pla.afficher();
+		System.out.println("\n-----------------------");
+		System.out.println("\n"+pla.horsLimite(8, 8)); // true
+		System.out.println("\n"+pla.horsLimite(9, 8)); // true
+		System.out.println("\n"+pla.horsLimite(7, 7)); // false
+		System.out.println("\n-----------------------");
+		pla.remplirCase(8, 8, c); // pas possible
+		pla.remplirCase(7, 7, c); // possible
+		pla.remplirCase(0, 0, c); // possible 
+		pla.afficher();
+		System.out.println("\n");
+		pla.videCase(7, 7);
+		pla.remplirCase(7, 6, r);
 		pla.afficher();
 
 	}

@@ -24,19 +24,26 @@ public class Plateau{
 		}
 	}
 	public boolean horsLimite(int x, int y){
-		if (x>this.longueur || y > this.largeur){
-			return false;
+		if (x>=this.longueur || y >=this.largeur){
+			return true; // true si (x, y) est une case hors limite du tableau
 		}
-		return true;
+		return false; // false si c'est dedans le tableau valide
 	}
 	public Case getCase(int x, int y){
-		return this.cases[x][y];
+		if(!horsLimite(x, y)){
+			return this.cases[x][y];
+		}
+		return null;
 	}
 	public void videCase(int x, int y){
-		this.cases[x][y].enleverPiece();
+		if(!horsLimite(x, y)){
+			this.cases[x][y].enleverPiece();
+		}
 	}
 	public void remplirCase(int x, int y, Piece p){
-		this.cases[x][y].remplirPiece(p);
+		if(!horsLimite(x, y)){
+			this.cases[x][y].remplirPiece(p);
+		}
 	}
 	public void afficher(){
 		for(int i=0; i<longueur; i++){
