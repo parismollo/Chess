@@ -16,15 +16,21 @@ public class Pion extends Piece{
 		boolean couleur_case_arr = arr.getCouleur();
 		if(super.estValide(d, p)){
 			// 1. move twice forward if first time
+			// System.out.println("\nFIRST PLAY: "+first_play);
 			if(first_play){
 				if(d.typeDeplacement()=='v' && arr.estVide()){
 					if(d.dist()==1 || d.dist()==2){
 						estValide = true;
 					}
 				}
+				if(d.typeDeplacement()=='d' && d.dist()==1 && d.isForward(this)){
+					if(couleur_case_arr!=this.getCouleur()){
+						estValide = true;
+					}
+				}
 			}else{
 				// 2. move forward one square
-				if(d.typeDeplacement()=='v' && d.isForward(this)){
+				if(d.typeDeplacement()=='v' && d.isForward(this) && d.dist()==1){
 					estValide = true;
 				}
 				// 3. if tackles, can move one diagonally forward.

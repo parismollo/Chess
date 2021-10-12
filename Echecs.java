@@ -15,19 +15,20 @@ public class Echecs{
 		Case case_depart = pla.getCase(depart[0], depart[1]);
 		Case case_arrivee = pla.getCase(arrivee[0], arrivee[1]);
 		// 1. Tester si déplacement est valide au tableau
-		if(pla.horsLimite(depla)){return false;}
-		if(case_depart.estVide()){return false;}
+		if(pla.horsLimite(depla)){/*System.out.println("Hors Limite");*/ return false;}
+		if(case_depart.estVide()){/*System.out.println("Départ est vide ");*/ return false;}
 
 		Piece piece_depart = case_depart.getPiece();
-		if(piece_depart.getCouleur()!=joueur){return false;}
+		if(piece_depart.getCouleur()!=joueur){/*System.out.println("Pièce départ pas même couleur");*/ return false;}
 
 		if(!case_arrivee.estVide()){
 			if(case_arrivee.getPiece().getCouleur()==joueur){
+				// System.out.println("Case arrivée même couleur");
 				return false;
 			}
 		}
 		// 1.b si déplacement valide pour piece
-		if(!piece_depart.estValide(depla, pla)){return false;}
+		if(!piece_depart.estValide(depla, pla)){/*System.out.println("Déplacement pas valide pour pièce");*/ return false;}
 		// 2. si valide.
 		pla.videCase(depart[0], depart[1]);
 		// 	a. vider case de départ.
@@ -37,6 +38,8 @@ public class Echecs{
 		}
 		//  c. remplir case d'arrivée avec pièce à déplacer.
 		pla.remplirCase(arrivee[0], arrivee[1], piece_depart);
+		// Mise à jour du tour
+		switchJoueur();
 		return true;
 	}
 
@@ -45,6 +48,9 @@ public class Echecs{
 	}
 	public Plateau getPlateau(){
 		return this.plateau;
+	}
+	public void switchJoueur(){
+		this.joueur = (this.joueur) ? false : true;
 	}
 	public static void insert_pieces(Plateau pla){
 		// Pions - ok

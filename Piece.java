@@ -23,15 +23,18 @@ public class Piece{
 			Case dep = p.getCase(depart[0], depart[1]);
 			Case arr = p.getCase(arrivee[0], arrivee[1]);
 			if(dep.estVide()){
+				System.out.println("Départ est vide");
 				return false;
 			}
 			else if(!arr.estVide()){
 					if(arr.getPiece().couleur == this.couleur){
-					return false;
+						System.out.println("Case arrivée a même couleur en classe Piece");
+						return false;
 				}
 			}
 			return true;
 		}
+		System.out.println("Hors limite dans classe pièce");
 		return false;
 	}
 }

@@ -79,8 +79,20 @@ public class Test{
 		// System.out.println("\n"+p1.estValide(d4, pla)); // false;
 
 		Echecs e = new Echecs();
-		Piece p = e.getPlateau().getCase(1, 0).getPiece();
-		System.out.println("\n"+p.estValide(new Deplacement(1, 0, 3, 0), e.getPlateau()));
+		Plateau plateau = e.getPlateau();
+		Deplacement d1 = new Deplacement(1, 0, 2, 0);
+		e.jouerTour(d1, false, plateau);
+
+		System.out.println("\n");
+		plateau.afficher();
+
+		Deplacement d2 = new Deplacement(3, 1, 2, 0);
+		e.jouerTour(d2, true, plateau);
+
+		System.out.println("\n");
+		plateau.afficher();
+
+
 
 
 

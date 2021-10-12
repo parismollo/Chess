@@ -64,16 +64,19 @@ public class Deplacement{
 		if(p.getCouleur()){ // blanc; forward si 
 			if(t=='d' || t=='v'){
 				if(x1<x0){
+					// System.out.println("returning true for isForward");
 					return true;
 				}
 			}
 		}else{
 			if(t=='d' || t=='v'){
 				if(x1>x0){
+					// System.out.println("returning true for isForward");
 					return true;
 				}
 			}
 		}
+		// System.out.println("returning false for isForward");
 		return false;
 	}
 }
