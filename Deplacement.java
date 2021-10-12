@@ -58,10 +58,22 @@ public class Deplacement{
 		}
 		return -1;
 	}
-	// public boolean horsLimite(Deplacement d){
-	// 	if (x>=this.longueur || y >=this.largeur){
-	// 		return true; // true si (x, y) est une case hors limite du tableau
-	// 	}
-	// 	return false; // false si c'est dedans le tableau valide
-	// }
+
+	public boolean isForward(Piece p){
+		char t = typeDeplacement();
+		if(p.getCouleur()){ // blanc; forward si 
+			if(t=='d' || t=='v'){
+				if(x1<x0){
+					return true;
+				}
+			}
+		}else{
+			if(t=='d' || t=='v'){
+				if(x1>x0){
+					return true;
+				}
+			}
+		}
+		return false;
+	}
 }

@@ -27,6 +27,9 @@ public class Echecs{
 	public static Plateau create_board(){
 		return new Plateau(5, 4); // Silverman Chess
 	}
+	public Plateau getPlateau(){
+		return this.plateau;
+	}
 	public static void insert_pieces(Plateau pla){
 		// Pions - ok
 		int counter_black = 0;

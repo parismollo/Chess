@@ -62,7 +62,7 @@ public class Test{
 		// Piece p1 = new Piece(false, "cavalier");
 		// Piece p2 = new Piece(true, "Cavalier");
 		// Piece p3 = new Piece(false, "roi");
-		// Plateau pla = new Plateau(8, 8);
+		
 		// pla.remplirCase(7, 7, p1);
 		// pla.remplirCase(4, 4, p2);
 		// pla.remplirCase(0, 0, p3);
@@ -77,6 +77,11 @@ public class Test{
 		// System.out.println("\n"+p1.estValide(d2, pla)); // false;
 		// System.out.println("\n"+p1.estValide(d3, pla)); // true;
 		// System.out.println("\n"+p1.estValide(d4, pla)); // false;
+
+		Echecs e = new Echecs();
+		Piece p = e.getPlateau().getCase(1, 0).getPiece();
+		System.out.println("\n"+p.estValide(new Deplacement(1, 0, 3, 0), e.getPlateau()));
+
 
 
 
