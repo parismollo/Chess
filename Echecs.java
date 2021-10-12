@@ -8,21 +8,37 @@ public class Echecs{
 		this.joueur = true; // true pour blanc, false pour noir
 		this.plateau.afficher();
 	}
-// UTILISER plateau.videcase plutot et remplir case directment!
-	// public void jouerTour(Deplacement d, boolean joueur, Plateau p){
-	// 	// 1. tester si deplacement est valide
-	// 	if(!p.horsLimite(d)){
-	// 		if(p.getCase(d.x0, d.y0).getPiece().estValide(d, p)){
-	// 			if(this.joueur == joueur){
-	// 				Piece x = p.getCase(d.x0, d.y0).getPiece()
-	// 				p.getCase(d.x0, d.y0).enleverPiece();
-	// 				if(!p.getCase(d.x1, d.y1).estVide()){
-	// 					p.getCase(d.x1, d.y1).enleverPiece();
-	// 				}
-	// 				p.getCase(d.x1, d.y1).remplirPiece(x);
-	// 			}
-	// 		}
-	// 	}
+
+	public boolean jouerTour(Deplacement depla, boolean joueur, Plateau pla){		
+		int depart[] = depla.getDepart();
+		int arrivee[] = depla.getArrivee();
+		Case case_depart = pla.getCase(depart[0], depart[1]);
+		Case case_arrivee = pla.getCase(arrivee[0], arrivee[1]);
+		// 1. Tester si déplacement est valide au tableau
+		if(pla.horsLimite(depla)){return false;}
+		if(case_depart.estVide()){return false;}
+
+		Piece piece_depart = case_depart.getPiece();
+		if(piece_depart.getCouleur()!=joueur){return false;}
+
+		if(!case_arrivee.estVide()){
+			if(case_arrivee.getPiece().getCouleur()==joueur){
+				return false;
+			}
+		}
+		// 1.b si déplacement valide pour piece
+		if(!piece_depart.estValide(depla, pla)){return false;}
+		// 2. si valide.
+		pla.videCase(depart[0], depart[1]);
+		// 	a. vider case de départ.
+		if(!case_arrivee.estVide()){
+			//  b. vider la case d'arrivée si contient pièce adversaire.
+			pla.videCase(arrivee[0], arrivee[1]);
+		}
+		//  c. remplir case d'arrivée avec pièce à déplacer.
+		pla.remplirCase(arrivee[0], arrivee[1], piece_depart);
+		return true;
+	}
 
 	public static Plateau create_board(){
 		return new Plateau(5, 4); // Silverman Chess
