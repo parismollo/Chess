@@ -1,14 +1,28 @@
 public class Echecs{
-	public static void main(String args[]){
-		// 1. Create game setup
-		// 	a. create board
-		Plateau pla = create_board();
-		// 	b. create pieces
-		// 	c. insert pieces
-		insert_pieces(pla);
-		// 2. Display
-		pla.afficher();
+	private boolean joueur;
+	private Plateau plateau;
+
+	public Echecs(){
+		this.plateau = create_board();
+		insert_pieces(this.plateau);
+		this.joueur = true; // true pour blanc, false pour noir
+		this.plateau.afficher();
 	}
+// UTILISER plateau.videcase plutot et remplir case directment!
+	// public void jouerTour(Deplacement d, boolean joueur, Plateau p){
+	// 	// 1. tester si deplacement est valide
+	// 	if(!p.horsLimite(d)){
+	// 		if(p.getCase(d.x0, d.y0).getPiece().estValide(d, p)){
+	// 			if(this.joueur == joueur){
+	// 				Piece x = p.getCase(d.x0, d.y0).getPiece()
+	// 				p.getCase(d.x0, d.y0).enleverPiece();
+	// 				if(!p.getCase(d.x1, d.y1).estVide()){
+	// 					p.getCase(d.x1, d.y1).enleverPiece();
+	// 				}
+	// 				p.getCase(d.x1, d.y1).remplirPiece(x);
+	// 			}
+	// 		}
+	// 	}
 
 	public static Plateau create_board(){
 		return new Plateau(5, 4); // Silverman Chess
@@ -47,5 +61,5 @@ public class Echecs{
 		pla.remplirCase(0, 2, r1);
 		Piece r2 = new Roi(true);
 		pla.remplirCase(4, 2, r2); 
-	}
+		}
 }

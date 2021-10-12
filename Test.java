@@ -22,7 +22,7 @@ public class Test{
 		// System.out.println("-----------------------");
 		// System.out.println(cs);
 		// System.out.println("-----------------------");
-		// Plateau pla = new Plateau(8, 8); // 0 - 7; 0 - 7
+		
 		// pla.afficher();
 		// System.out.println("\n-----------------------");
 		// System.out.println("\n"+pla.horsLimite(8, 8)); // true
@@ -38,22 +38,56 @@ public class Test{
 		// pla.remplirCase(7, 6, r);
 		// pla.afficher();
 
-		Deplacement d1 = new Deplacement(5, 1, 3, 3); // d, 2
-		Deplacement d2 = new Deplacement(5, 1, 2, 1); // v, 3
-		Deplacement d3 = new Deplacement(1, 1, 3, 2); // c, -1
-		Deplacement d4 = new Deplacement(6, 5, 5, 1); // x, -1
-		Deplacement d5 = new Deplacement(1, 5, 1, 4); // h, 1
-		System.out.println(d1.typeDeplacement());
-		System.out.println(d2.typeDeplacement());
-		System.out.println(d3.typeDeplacement());
-		System.out.println(d4.typeDeplacement());
-		System.out.println(d5.typeDeplacement());
+		// Deplacement d1 = new Deplacement(5, 1, 3, 3); // d, 2
+		// Deplacement d2 = new Deplacement(5, 1, 2, 1); // v, 3
+		// Deplacement d3 = new Deplacement(1, 1, 3, 2); // c, -1
+		// Deplacement d4 = new Deplacement(6, 5, 5, 1); // x, -1
+		// Deplacement d5 = new Deplacement(1, 5, 1, 4); // h, 1
+		// System.out.println(d1.typeDeplacement());
+		// System.out.println(d2.typeDeplacement());
+		// System.out.println(d3.typeDeplacement());
+		// System.out.println(d4.typeDeplacement());
+		// System.out.println(d5.typeDeplacement());
 
-		System.out.println(d1.dist());
-		System.out.println(d2.dist());
-		System.out.println(d3.dist());
-		System.out.println(d4.dist());
-		System.out.println(d5.dist());
+		// System.out.println(d1.dist());
+		// System.out.println(d2.dist());
+		// System.out.println(d3.dist());
+		// System.out.println(d4.dist());
+		// System.out.println(d5.dist());
+		// Deplacement d6 = new Deplacement(1, 8, 1, 4);
+		// Plateau pla = new Plateau(8, 8); // 0 - 7; 0 - 7
+		// System.out.println(pla.horsLimite(d5)); // false
+		// System.out.println(pla.horsLimite(d6)); // true
+
+		// Piece p1 = new Piece(false, "cavalier");
+		// Piece p2 = new Piece(true, "Cavalier");
+		// Piece p3 = new Piece(false, "roi");
+		// Plateau pla = new Plateau(8, 8);
+		// pla.remplirCase(7, 7, p1);
+		// pla.remplirCase(4, 4, p2);
+		// pla.remplirCase(0, 0, p3);
+		// pla.afficher();
+
+		// Deplacement d1 = new Deplacement(7, 7, 1, 4);
+		// Deplacement d2 = new Deplacement(2, 2, 1, 4); 
+		// Deplacement d3 = new Deplacement(7, 7, 4, 4); 
+		// Deplacement d4 = new Deplacement(7, 7, 0, 0); 
+
+		// System.out.println("\n"+p1.estValide(d1, pla)); // true;
+		// System.out.println("\n"+p1.estValide(d2, pla)); // false;
+		// System.out.println("\n"+p1.estValide(d3, pla)); // true;
+		// System.out.println("\n"+p1.estValide(d4, pla)); // false;
+
+
+
+
+
+
+
+
+
+
+
 
 
 	}

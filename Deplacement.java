@@ -1,11 +1,11 @@
 import java.lang.Math;
 
 public class Deplacement{
-	int x0; //coordonée de départ
-	int y0;
+	private int x0; //coordonée de départ
+	private int y0;
 
-	int x1;//coordonée d'arrivée
-	int y1;
+	private int x1;//coordonée d'arrivée
+	private int y1;
 
 	public Deplacement(int x0, int y0, int x1, int y1){
 		this.x0 = x0;
@@ -13,6 +13,18 @@ public class Deplacement{
 		this.x1 = x1;
 		this.y1 = y1;
 	}
+
+	public int[] getDepart(){
+		int t[] = {this.x0, this.y0};
+		return t;
+	}
+
+
+	public int[] getArrivee(){
+		int t[] = {this.x1, this.y1};
+		return t;
+	}
+
 
 	public char typeDeplacement(){
 		// vertical (must stay in the same col)
@@ -46,4 +58,10 @@ public class Deplacement{
 		}
 		return -1;
 	}
+	// public boolean horsLimite(Deplacement d){
+	// 	if (x>=this.longueur || y >=this.largeur){
+	// 		return true; // true si (x, y) est une case hors limite du tableau
+	// 	}
+	// 	return false; // false si c'est dedans le tableau valide
+	// }
 }

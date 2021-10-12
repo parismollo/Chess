@@ -3,4 +3,8 @@ Paris Mollo - L2 INFO Groupe 3
 # Exercice 2 [x]. + tests.
 # Exercice 3 [x]. + tests.
 # Exercice 4 [x]. + tests.
-# Exercice 5 [ ].
+# Exercice 5 [x]. + tests.
+# Exercice 6 [ ].
+- à tester
+# Exercice 7 [ ].
+à tester

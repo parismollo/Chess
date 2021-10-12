@@ -29,6 +29,16 @@ public class Plateau{
 		}
 		return false; // false si c'est dedans le tableau valide
 	}
+
+	public boolean horsLimite(Deplacement d){
+		int depart[] = d.getDepart();
+		int arrive[] = d.getArrivee();
+
+		if (depart[0]>=this.longueur || depart[1] >=this.largeur || arrive[0]>=this.longueur || arrive[1] >= this.largeur){
+			return true; // true si est une case hors limite du tableau
+		}
+		return false; // false si c'est dedans le tableau valide
+	}
 	public Case getCase(int x, int y){
 		if(!horsLimite(x, y)){
 			return this.cases[x][y];
