@@ -56,10 +56,14 @@ public class Plateau{
 		}
 	}
 	public void afficher(){
+		int counter_w = 0;
+		System.out.print("   [0][1][2][3]");
 		for(int i=0; i<longueur; i++){
 			System.out.println();
+			System.out.print("["+counter_w+"] ");
+			counter_w++;
 			for(int j=0; j<largeur; j++){
-				System.out.print(this.cases[i][j].toString());
+				System.out.print(this.cases[i][j].toString()+"  ");
 			}
 		}
 	}

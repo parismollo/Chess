@@ -78,34 +78,24 @@ public class Test{
 		// System.out.println("\n"+p1.estValide(d3, pla)); // true;
 		// System.out.println("\n"+p1.estValide(d4, pla)); // false;
 
-		Echecs e = new Echecs();
-		Plateau plateau = e.getPlateau();
-		Deplacement d1 = new Deplacement(1, 0, 2, 0);
-		e.jouerTour(d1, false, plateau);
+		// Echecs e = new Echecs();
+		// Plateau plateau = e.getPlateau();
+		// Communication c = new Communication();
+		// // Deplacement d1 = c.demanderDeplacement();
+		// Deplacement d1 = new Deplacement(1, 0, 2, 0);
+		// e.jouerTour(d1, false, plateau);
 
-		System.out.println("\n");
-		plateau.afficher();
+		// System.out.println("\n");
+		// plateau.afficher();
 
-		Deplacement d2 = new Deplacement(3, 1, 2, 0);
-		e.jouerTour(d2, true, plateau);
+		// Deplacement d2 = new Deplacement(3, 1, 2, 0);
+		// e.jouerTour(d2, true, plateau);
 
-		System.out.println("\n");
-		plateau.afficher();
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+		// System.out.println("\n");
+		// plateau.afficher();
+		// System.out.println(plateau.getCase(4, 3).getPiece().estRoi());
+		
+		Echecs echecs = new Echecs();
+		echecs.jouerPartie();
 	}
 }

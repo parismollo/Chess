@@ -15,6 +15,12 @@ public class Piece{
 	public boolean getCouleur(){
 		return this.couleur;
 	}
+	public boolean estRoi(){
+		if(this.nom.equals("Roi")||this.nom.equals("roi")){
+			return true;
+		}
+		return false;
+	}
 	public boolean estValide(Deplacement d, Plateau p){
 		int depart[] = d.getDepart();
 		int arrivee[] = d.getArrivee();

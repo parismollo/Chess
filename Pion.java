@@ -13,18 +13,25 @@ public class Pion extends Piece{
 		boolean estValide = false;
 		int arrivee[] = d.getArrivee();
 		Case arr = p.getCase(arrivee[0], arrivee[1]);
-		boolean couleur_case_arr = arr.getCouleur();
+		boolean couleur_piece_arr = false;
+		if(!arr.estVide()){
+			couleur_piece_arr = arr.getPiece().getCouleur();
+		}
+
 		if(super.estValide(d, p)){
 			// 1. move twice forward if first time
 			// System.out.println("\nFIRST PLAY: "+first_play);
+			// System.out.println(d.isForward(this)+" "+d.dist()+" "+d.typeDeplacement());
 			if(first_play){
 				if(d.typeDeplacement()=='v' && arr.estVide()){
 					if(d.dist()==1 || d.dist()==2){
 						estValide = true;
 					}
 				}
-				if(d.typeDeplacement()=='d' && d.dist()==1 && d.isForward(this)){
-					if(couleur_case_arr!=this.getCouleur()){
+				if(d.typeDeplacement()=='d' && d.dist()==1 && d.isForward(this) && !arr.estVide()){
+					// System.out.println("here...");
+					if(couleur_piece_arr!=this.getCouleur()){
+						// System.out.println("not here...?");
 						estValide = true;
 					}
 				}
@@ -34,8 +41,8 @@ public class Pion extends Piece{
 					estValide = true;
 				}
 				// 3. if tackles, can move one diagonally forward.
-				if(d.typeDeplacement()=='d' && d.dist()==1 && d.isForward(this)){
-					if(couleur_case_arr!=this.getCouleur()){
+				if(d.typeDeplacement()=='d' && d.dist()==1 && d.isForward(this) && !arr.estVide()){
+					if(couleur_piece_arr!=this.getCouleur()){
 						estValide = true;
 					}
 				}

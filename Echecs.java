@@ -1,12 +1,50 @@
 public class Echecs{
 	private boolean joueur;
 	private Plateau plateau;
+	private boolean all_kings_alive;
 
 	public Echecs(){
 		this.plateau = create_board();
 		insert_pieces(this.plateau);
 		this.joueur = true; // true pour blanc, false pour noir
+		this.all_kings_alive = true;
 		this.plateau.afficher();
+		System.out.println("\n");
+	}
+	public void jouerPartie(){
+		// this.plateau.afficher();
+		Communication communication = new Communication();
+		boolean valid_white = false;
+		boolean valid_black = false;
+		while(all_kings_alive){
+			
+			this.plateau.afficher();
+			System.out.println("\n");
+			System.out.println("Joeur Blanc");
+			
+			do{
+
+				Deplacement deplacement_blanc = communication.demanderDeplacement();
+				valid_white = jouerTour(deplacement_blanc, true, this.plateau);
+
+			}while(!valid_white);
+
+			this.plateau.afficher();
+			System.out.println("\n");
+			if(!all_kings_alive){break;}
+			System.out.println("Joeur Noir");
+			
+			do{
+
+				Deplacement deplacement_noir = communication.demanderDeplacement();
+				valid_black = jouerTour(deplacement_noir, false, this.plateau);
+
+			}while(!valid_black);
+		}
+	}
+
+	public void kill_king(){
+		this.all_kings_alive = false;
 	}
 
 	public boolean jouerTour(Deplacement depla, boolean joueur, Plateau pla){		
@@ -28,12 +66,16 @@ public class Echecs{
 			}
 		}
 		// 1.b si déplacement valide pour piece
-		if(!piece_depart.estValide(depla, pla)){/*System.out.println("Déplacement pas valide pour pièce");*/ return false;}
+		if(!piece_depart.estValide(depla, pla)){System.out.println("Déplacement pas valide pour pièce"); return false;}
 		// 2. si valide.
 		pla.videCase(depart[0], depart[1]);
 		// 	a. vider case de départ.
 		if(!case_arrivee.estVide()){
 			//  b. vider la case d'arrivée si contient pièce adversaire.
+			Piece piece_arrivee = case_arrivee.getPiece();
+			if (piece_arrivee.estRoi()){
+				kill_king();
+			}
 			pla.videCase(arrivee[0], arrivee[1]);
 		}
 		//  c. remplir case d'arrivée avec pièce à déplacer.
@@ -42,6 +84,7 @@ public class Echecs{
 		switchJoueur();
 		return true;
 	}
+
 
 	public static Plateau create_board(){
 		return new Plateau(5, 4); // Silverman Chess
