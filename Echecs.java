@@ -8,8 +8,8 @@ public class Echecs{
 		insert_pieces(this.plateau);
 		this.joueur = true; // true pour blanc, false pour noir
 		this.all_kings_alive = true;
-		this.plateau.afficher();
-		System.out.println("\n");
+		// this.plateau.afficher();
+		// System.out.println("\n");
 	}
 	public void jouerPartie(){
 		// this.plateau.afficher();
@@ -17,10 +17,11 @@ public class Echecs{
 		boolean valid_white = false;
 		boolean valid_black = false;
 		while(all_kings_alive){
-			
+
 			this.plateau.afficher();
 			System.out.println("\n");
 			System.out.println("Joeur Blanc");
+			System.out.println("____________");
 			
 			do{
 
@@ -33,6 +34,7 @@ public class Echecs{
 			System.out.println("\n");
 			if(!all_kings_alive){break;}
 			System.out.println("Joeur Noir");
+			System.out.println("____________");
 			
 			do{
 

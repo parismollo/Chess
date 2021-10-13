@@ -95,7 +95,7 @@ public class Test{
 		// plateau.afficher();
 		// System.out.println(plateau.getCase(4, 3).getPiece().estRoi());
 		
-		Echecs echecs = new Echecs();
-		echecs.jouerPartie();
+		// Echecs echecs = new Echecs();
+		// echecs.jouerPartie();
 	}
 }
